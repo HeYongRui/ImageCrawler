@@ -28,7 +28,7 @@ public class DownloadUtil {
         this.downloadCallBack = downloadCallBack;
     }
 
-    public void startDownloadList(Vector<ImageModel> downloadList) {
+    public void startDownloadList(Vector<ImageModel> downloadList, String keyword) {
         HttpURLConnection connection = null;
         //循环下载
         try {
@@ -62,7 +62,7 @@ public class DownloadUtil {
                 if (responseCode != 200) continue;
                 InputStream inputStream = connection.getInputStream();
                 if (inputStream == null) continue;
-                writeFile(inputStream, "d:\\ImageCrawler\\", URLDecoder.decode(filename, "UTF-8"));
+                writeFile(inputStream, "d:\\ImageCrawler\\" + keyword + "\\", URLDecoder.decode(filename, "UTF-8"));
             }
         } catch (Exception e) {
             e.printStackTrace();

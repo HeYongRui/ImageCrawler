@@ -58,7 +58,7 @@ public class HttpRequestUtil {
             connection.connect();
 
             int code = connection.getResponseCode();
-            System.out.println("第" + page + "页POST网页解析连接响应吗：" + code);
+            System.out.println("第" + page + "页POST网页解析连接响应码：" + code);
             if (code == 200) {
                 InputStream in = connection.getInputStream();
                 InputStreamReader isr = new InputStreamReader(in, "utf-8");
@@ -96,7 +96,7 @@ public class HttpRequestUtil {
             connection.setRequestProperty("Charset", "UTF-8");
 
             int code = connection.getResponseCode();
-            System.out.println("第" + page + "页第" + postion + "个GET网页解析连接响应吗：" + code);
+            System.out.println("第" + page + "页第" + postion + "个GET网页解析连接响应码：" + code);
             if (code != 200) return "";
             InputStream in = connection.getInputStream();
             InputStreamReader isr = new InputStreamReader(in, "utf-8");

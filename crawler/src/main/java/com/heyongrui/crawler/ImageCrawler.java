@@ -19,6 +19,7 @@ public class ImageCrawler {
             public void allWorksDone() {
                 if (is_last_page) {
                     System.out.println("下载数据完毕");
+                    downloadUtil.stopDownload();
                 } else {
                     page++;
                     parseDownloadList(downloadUtil, keyword, page);
@@ -36,7 +37,7 @@ public class ImageCrawler {
             is_last_page = dataUtil.isLastPage(entity);
             Vector<ImageModel> imageModels = dataUtil.getImgModelsData(entity, page);
             //开始批量下载任务
-            downloadUtil.startDownloadList(imageModels);
+            downloadUtil.startDownloadList(imageModels, keyword);
         } catch (Exception e) {
             e.printStackTrace();
         }
